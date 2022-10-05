@@ -1,0 +1,33 @@
+--This is my sportingoods database, telling us what items we sell, its quantity and price.
+CREATE TABLE sportinggoods (ID integer,
+                            item text, 
+                            quantity integer,
+                            price integer, 
+                            color text );
+INSERT INTO sportinggoods
+VALUES  (1, "Balls", 1, 8, "white"),
+        (2, "Soccer Boots", 1, 67, "black"),
+        (3, "Shin guards", 1, 14, "Purple"),
+        (4, "Shorts", 1, 10, "White"),
+        (5, "Fishing poles", 1, 39, "Red"),
+        (6, "Fishing lures", 1, 2, "silver"),
+        (7, "Pocket knife", 1, 17, "Black"),
+        (8, "Bag packs", 1, 19, "Black"),
+        (9, "Water bottles", 1, 10, "Clear"),
+        (10, "Whistles", 1, 4, "Black"),
+        (11, "Hunting shirt", 1, 25, "Camo"),
+        (12, "Hunting boots", 1, 45, "Black"),
+        (13, "Basket balls", 1, 21, "Brown"),
+        (14, "Scotch guard", 1, 8, "Clear"),
+        (15, "shot gun", 1, 149, "Brown");
+        
+        --Displayed sportinggoods database ordered by the price
+        select   *
+        from     sportinggoods
+        order by price desc;
+        
+        --Displayed the number of items by their respective colors
+        select   color, count(item) as "Number of item"
+        from     sportinggoods
+        group by color;
+        
