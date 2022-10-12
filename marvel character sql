@@ -4,6 +4,8 @@
  and power grid data from http://marvel.wikia.com/Power_Grid#Power
  Collected by: https://www.khanacademy.org/profile/Mentrasto/
  */
+ --This is my SELECT Query using functions AND/OR, HAVING, and CASE statement.
+ 
 CREATE TABLE marvels (ID INTEGER PRIMARY KEY,
     name TEXT,
     popularity INTEGER,
@@ -46,12 +48,23 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
-SELECT * FROM marvels WHERE strength > 5 ORDER by ID ASC;
-SELECT * FROM marvels WHERE speed > 4 OR fighting_skills < 8;
-SELECT * FROM marvels WHERE hometown = "USA" AND gender = "Male";
-SELECT name, AVG(weight_kg) AS avg_weight_kg FROM marvels
+SELECT * 
+FROM marvels 
+WHERE strength > 5 ORDER by ID ASC;
+
+SELECT * 
+FROM marvels
+WHERE speed > 4 OR fighting_skills < 8;
+
+SELECT * 
+FROM marvels 
+WHERE hometown = "USA" AND gender = "Male";
+
+SELECT name, AVG(weight_kg) AS avg_weight_kg 
+FROM marvels
 GROUP BY name
 HAVING avg_weight_kg > 100;
+
 SELECT name, intelligence,
     CASE
         WHEN intelligence > 4 THEN "GOOD"
