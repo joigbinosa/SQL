@@ -58,4 +58,5 @@ SELECT name, intelligence,
         WHEN intelligence > 6 THEN "BETTER"
         WHEN intelligence > 8 THEN "BEST"
         ELSE "OK"
-        END as "intelligence_rating" FROM marvels;
+        END as "intelligence_rating" FROM marvels
+        GROUP BY "intelligence_rating";
