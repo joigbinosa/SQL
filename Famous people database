@@ -1,0 +1,68 @@
+This is my famous people database using functions SELECT, FROM, JOINS, ON.
+
+CREATE TABLE people (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                     name TEXT,
+                     Country_of_origin TEXT,
+                     Position TEXT);
+INSERT INTO people
+VALUES (1, "Saka", "England", "winger"),
+       (2, "Ronaldo", "Portugal", "winger"),
+       (3, "Lebron_James", "USA", "foward"),
+       (4, "Curry", "USA", "point_guard"),
+       (5, "Jesus", "Brazil", "foward"),
+       (6, "Harry_kane", "England", "foward"),
+       (7, "Eminem", "USA", "none"),
+       (8, "John_Legend", "USA", "none"),
+       (9, "JK_Rowling", "England", "none"),
+       (10, "Stephen_King", "USA", "none");
+
+CREATE TABLE famous_people (id INTEGER,
+                            name TEXT,
+                            occupation TEXT);
+INSERT INTO famous_people
+VALUES (1, "Saka", "soccer_player"),
+       (2, "Ronaldo", "soccer_player"),
+       (3, "Lebron_James", "basketball_player"),
+       (4, "Curry", "basketball_player"),
+       (5, "Jesus", "soccer_player"),
+       (6, "Harry_Kane", "soccer_player"),
+       (7, "Eminem", "musician"),
+       (8, "John_legend", "musician"),
+       (9, "Jk_Rowlings", "author"),
+       (10, "Stephen_King", "author");
+
+CREATE TABLE songs (id INTEGER,
+                    name TEXT,
+                    title TEXT);
+INSERT INTO songs
+VALUES (1, "John_Legend", "this_time"),
+       (2, "John_Legen", "all_of_me"),
+       (3, "John_Legend", "ordinary_people"),
+       (4, "Eminem", "mockingbird"),
+       (5, "Eminem", "When_im_gone"),
+       (6, "Eminem", "Not_afraid");
+
+CREATE TABLE books (id INTEGER,
+                    author TEXT,
+                    title TEXT,
+                    year INTEGER);
+INSERT INTO books
+VALUES (1, "JK_Rowlings", "Harry_potter", 1997),
+       (2, "Stephen_King", "IT", 1986),
+       (3, "Stephen_King", "misery", 1987),
+       (4, "JK_Rowling", "troubled_blood", 2020);
+       
+SELECT p.name, p.country_of_origin, f.occupation
+FROM people p
+JOIN famous_people f
+ON p.id=f.id;
+
+SELECT f.id, s.name, s.title
+FROM famous_people f
+Join songs s
+ON f.id= s.id;
+
+SELECT f.id, b.author, b.title, b.year
+FROM famous_people f
+JOIN books b
+ON f.id=b.id;
